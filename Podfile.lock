@@ -1,0 +1,24 @@
+PODS:
+  - Cosmos (23.0.0)
+  - iOSDropDown (0.4.0)
+  - IQKeyboardManagerSwift (7.0.3)
+
+DEPENDENCIES:
+  - Cosmos (~> 23.0)
+  - iOSDropDown
+  - IQKeyboardManagerSwift
+
+SPEC REPOS:
+  trunk:
+    - Cosmos
+    - iOSDropDown
+    - IQKeyboardManagerSwift
+
+SPEC CHECKSUMS:
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  iOSDropDown: ce9daa584eaa5567cafc1b633e3cc7eb6d9cea42
+  IQKeyboardManagerSwift: f9c5dc36cba16ddd2e51fa7d51c34a2e083029b5
+
+PODFILE CHECKSUM: 7ca087f81e9ba4bd8ebf2f1526cf1e76f3a2939a
+
+COCOAPODS: 1.15.2
