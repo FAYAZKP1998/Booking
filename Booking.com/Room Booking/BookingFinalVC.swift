@@ -29,21 +29,7 @@ class BookingFinalVC: UIViewController {
     
     
     
-//    func loadImage(from url:URL){
-//        URLSession.shared.dataTask(with: url){(data,response,error)in
-//            if let error = error{
-//                print("Error loading image:\(error)")
-//                return
-//            }
-//            guard let data = data, let image = UIImage(data: data) else{
-//                print("Failed to load image data")
-//                return
-//            }
-//            DispatchQueue.main.async(){
-//                self.hotel_img.image = image
-//            }
-//        }
-//    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,30 +39,31 @@ class BookingFinalVC: UIViewController {
         search_view.layer.borderColor = UIColor.systemGray5.cgColor
         
         booking_view.layer.cornerRadius = booking_view.frame.height/2
-        checkin_date.text = UserDefaults.standard.string(forKey: "checkindate")
-        checkout_date.text = UserDefaults.standard.string(forKey: "checkoutdate")
+        checkin_date.text = UserDefaults.standard.string(forKey: "checkin")
+        checkout_date.text = UserDefaults.standard.string(forKey: "checkout")
         room_num.text = "\(UserDefaults.standard.string(forKey: "roomnum") ?? "0") Room"
         hotel_name.text = String(describing: dict1["hname"]!)
         hotel_location.text = String(describing: dict1["hloc"]!)
         hotel_price.text = String(describing: dict1["hprice"]!)
         
-        let image_url = String(describing: dict1["himage"]!)
+        let image_url = String(describing: self.dict1["himage"]!)
         let url = URL(string: image_url)
         let img = try? Data(contentsOf: url!)
-        hotel_img.image = UIImage(data: img!)
+        self.hotel_img.image = UIImage(data: img!)
         
         
         
-//        if let url = URL(string: image_url){
-//            loadImage(from: url)
 
-//        }
 
         
         
         
         
 
+        
+        print(hotel_name.text!,hotel_location.text!,hotel_price.text!,checkin_date.text!,checkout_date.text!,room_num.text!)
+        
+        
         
         
         hotel_img.layer.cornerRadius = 8
@@ -85,7 +72,7 @@ class BookingFinalVC: UIViewController {
         details_view.layer.borderColor = UIColor.systemGray5.cgColor
         star_img.tintColor = .black
         pay_btn.tintColor = .black
-        
+        //print("hname=\(hotel_name.text!)&hostel_loc=\(hotel_location.text!)&hostel_price=\(hotel_price.text!)&checkin=\(checkin_date.text!)&checkout=\(checkout_date.text!)")
         
     }
     
@@ -102,17 +89,17 @@ class BookingFinalVC: UIViewController {
         
         urlreq.httpBody = poststring.data(using: .utf8)
         
-   
+        
         
         
         
         let task = URLSession.shared.dataTask(with: urlreq){(data,response,error)in
-        let mydata = data
+            let mydata = data
             do{
-                //print(mydata!)
-                self.dict2 = try JSONSerialization.jsonObject(with: mydata!,options: []) as! NSDictionary
-                print(self.dict2)
+                print(mydata!)
                 do{
+                    self.dict2 = try JSONSerialization.jsonObject(with: mydata!) as! NSDictionary
+                    print(self.dict2)
                     DispatchQueue.main.async(){
                         
                     }
@@ -122,20 +109,7 @@ class BookingFinalVC: UIViewController {
             }
         }
         task.resume()
-        
-        
-        
-        
-
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

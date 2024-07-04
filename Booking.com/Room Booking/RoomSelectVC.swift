@@ -27,8 +27,10 @@ class RoomSelectVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        selected_hotel = UserDefaults.standard.dictionary(forKey: "selected_hotel")! as NSDictionary
+        
         select_sgmnt.selectedSegmentIndex = 0
-        select_sgmnt.addUnderlineForSelectedSegment()
+        //select_sgmnt.addUnderlineForSelectedSegment()
         select_sgmnt.layer.masksToBounds = false
         
         booking_view.layer.cornerRadius = 10
@@ -37,7 +39,7 @@ class RoomSelectVC: UIViewController {
         
         checkin_date.text = ""
         checkout_date.text = ""
-        room_no.text = "0 Room"
+        room_no.text = "1 Room"
         adddate_btn.tintColor = .black
         room_view.isHidden = true
         date_picker.tintColor = .systemOrange
@@ -50,7 +52,7 @@ class RoomSelectVC: UIViewController {
         addroom_btn.layer.borderColor = UIColor.black.cgColor
         addroom_btn.layer.cornerRadius = addroom_btn.frame.height/2
         addroom_btn.tintColor = .black
-        selected_hotel = UserDefaults.standard.dictionary(forKey: "selected")! as NSDictionary
+        
     
         
         
@@ -60,14 +62,14 @@ class RoomSelectVC: UIViewController {
         let date = DateFormatter()
         date.dateFormat = "yyyy-MM-dd"
         if select_sgmnt.selectedSegmentIndex == 0{
-            UserDefaults.standard.setValue(date.string(from: date_picker.date), forKey: "checkindate")
+            UserDefaults.standard.setValue(date.string(from: date_picker.date), forKey: "checkin")
         }else if select_sgmnt.selectedSegmentIndex == 1{
-            UserDefaults.standard.setValue(date.string(from: date_picker.date), forKey: "checkoutdate")
+            UserDefaults.standard.setValue(date.string(from: date_picker.date), forKey: "checkout")
 
         }
     }
     @IBAction func SegmentView_select(_ sender: UISegmentedControl) {
-        sender.changeUnderlinePosition()
+        //sender.changeUnderlinePosition()
         switch sender.selectedSegmentIndex{
         case 0:adddate_btn.isHidden = false
             date_view.isHidden = false
@@ -96,17 +98,17 @@ class RoomSelectVC: UIViewController {
            
             switch select_sgmnt.selectedSegmentIndex{
                 
-            case 0:checkin_date.text = UserDefaults.standard.string(forKey: "checkindate")
+            case 0:checkin_date.text = UserDefaults.standard.string(forKey: "checkin")
                 select_sgmnt.selectedSegmentIndex = 1
-                select_sgmnt.changeUnderlinePosition()
+                //select_sgmnt.changeUnderlinePosition()
                     adddate_btn.isHidden = false
                     date_view.isHidden = false
                     room_view.isHidden = true
                     Apply_btn.isHidden = true
                     adddate_btn.isHidden = false
-            case 1:checkout_date.text = UserDefaults.standard.string(forKey: "checkoutdate")
+            case 1:checkout_date.text = UserDefaults.standard.string(forKey: "checkout")
                 select_sgmnt.selectedSegmentIndex = 2
-                select_sgmnt.changeUnderlinePosition()
+                //select_sgmnt.changeUnderlinePosition()
                     adddate_btn.isHidden = true
                     date_view.isHidden = true
                     room_view.isHidden = false
@@ -120,16 +122,19 @@ class RoomSelectVC: UIViewController {
     }
     
     @IBAction func Add_room(_ sender: Any) {
-        room_no.text = "\(UserDefaults.standard.string(forKey: "roomnum") ?? "0") Room"
+        room_no.text = "\(UserDefaults.standard.string(forKey: "roomnum") ?? "1") Room"
         Apply_btn.isHidden = false
         
     }
     
     @IBAction func Apply(_ sender: Any) {
 
+        
+        
             let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bookingfinal") as! BookingFinalVC
             self.navigationController?.pushViewController(next, animated: true)
             next.dict1 = selected_hotel
+
         
     }
     

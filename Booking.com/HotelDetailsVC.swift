@@ -37,6 +37,7 @@ class HotelDetailsVC: UIViewController,UICollectionViewDelegate,UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "hoteldetails") as! HotelDetailsVC
         self.navigationController?.pushViewController(next, animated: true)
+        next.dict = self.array[indexPath.row] as! NSDictionary
     }
     
     @IBOutlet weak var Img_view: UIView!
@@ -66,8 +67,7 @@ class HotelDetailsVC: UIViewController,UICollectionViewDelegate,UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         getvalue()
-        
-        
+        UserDefaults.standard.setValue(self.dict, forKey: "selected_hotel")
         location_view.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
         location_view.layer.borderWidth = 1
         ratings_view.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
@@ -93,7 +93,7 @@ class HotelDetailsVC: UIViewController,UICollectionViewDelegate,UICollectionView
         if let url = URL(string: image_url) {
                     loadImage(from: url)
                 }
-        UserDefaults.standard.setValue(dict, forKey: "selected")
+        
         
         
     }
@@ -120,6 +120,8 @@ class HotelDetailsVC: UIViewController,UICollectionViewDelegate,UICollectionView
     @IBAction func Book_now(_ sender: Any) {
         let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "selectroom") as! RoomSelectVC
         self.navigationController?.pushViewController(next, animated: true)
+        
+        
         
         
     }

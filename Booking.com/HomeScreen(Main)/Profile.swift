@@ -38,6 +38,10 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }else{
                 cell.img_details.image = detail_img[1]
             }
+        }else if tableView == Profile_user{
+            cell.profilename.text = UserDefaults.standard.string(forKey: "username")!
+            cell.profile_no.text = UserDefaults.standard.string(forKey: "phone")!
+            return cell
         }
         return cell
     }
@@ -78,6 +82,7 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource {
         Profile_user.separatorStyle = .none
         Profile_details.isScrollEnabled = false
         self.navigationController?.isNavigationBarHidden = true
+        
     }
     
 

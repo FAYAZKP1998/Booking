@@ -85,7 +85,7 @@ class ViewController: UIViewController {
             do{
                 do{
                     self.dict = try JSONSerialization.jsonObject(with: mydata!,options: []) as! NSDictionary
-//                  print("jsondata--->",self.dict)
+
                     DispatchQueue.main.async {
                        
                         
@@ -93,7 +93,9 @@ class ViewController: UIViewController {
                             let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "hometab") as! HomeTab
                             next.modalPresentationStyle = .overFullScreen
                             self.present(next, animated: true)
-                            
+                            UserDefaults.standard.setValue(self.dict["username"], forKey: "username")
+                            UserDefaults.standard.setValue(self.dict["phone"], forKey: "phone")
+                            UserDefaults.standard.setValue(self.dict["password"], forKey: "password")
                             self.mobile_no.text = ""
                             self.password.text = ""
                         }

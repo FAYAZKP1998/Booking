@@ -14,7 +14,8 @@ class ProfileTableView: UITableViewCell {
     @IBOutlet weak var details_view: UIView!
     @IBOutlet weak var lbl_details: UILabel!
     @IBOutlet weak var img_details: UIImageView!
-    
+    var name = ""
+    var num = ""
     override func awakeFromNib() {
         super.awakeFromNib()
 

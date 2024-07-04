@@ -847,22 +847,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Iod-xt-FPD">
-                                <rect key="frame" x="0.0" y="151" width="393" height="41"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="nTX-85-ard"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Booked"/>
-                                    <segment title="History"/>
-                                </segments>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <action selector="segment_changed:" destination="MyO-Ya-MmC" eventType="valueChanged" id="Xdo-gd-i3d"/>
-                                </connections>
-                            </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j89-1S-wn1">
                                 <rect key="frame" x="0.0" y="199" width="393" height="570"/>
                                 <connections>
@@ -875,23 +859,39 @@
                                     <segue destination="FQj-Ct-bAV" kind="embed" id="p5O-uq-xHj"/>
                                 </connections>
                             </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Iod-xt-FPD">
+                                <rect key="frame" x="0.0" y="151" width="393" height="41"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Muk-DN-qDs"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Booked"/>
+                                    <segment title="History"/>
+                                </segments>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segment_changed:" destination="MyO-Ya-MmC" eventType="valueChanged" id="Xdo-gd-i3d"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k80-Ix-WFw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Iod-xt-FPD" firstAttribute="top" secondItem="WV9-HN-HHE" secondAttribute="bottom" constant="45" id="5oI-3w-BPT"/>
-                            <constraint firstItem="Iod-xt-FPD" firstAttribute="leading" secondItem="k80-Ix-WFw" secondAttribute="leading" id="73W-xF-zI1"/>
-                            <constraint firstItem="j89-1S-wn1" firstAttribute="top" secondItem="Iod-xt-FPD" secondAttribute="bottom" constant="8" id="Atf-lY-yNc"/>
-                            <constraint firstItem="u6e-xK-0nX" firstAttribute="trailing" secondItem="k80-Ix-WFw" secondAttribute="trailing" id="Bxz-Kh-acq"/>
-                            <constraint firstItem="j89-1S-wn1" firstAttribute="leading" secondItem="k80-Ix-WFw" secondAttribute="leading" id="CAu-ma-cAd"/>
-                            <constraint firstItem="Iod-xt-FPD" firstAttribute="trailing" secondItem="k80-Ix-WFw" secondAttribute="trailing" id="CT6-00-Q6C"/>
-                            <constraint firstItem="u6e-xK-0nX" firstAttribute="top" secondItem="Iod-xt-FPD" secondAttribute="bottom" constant="8" id="GL0-jM-4Q5"/>
-                            <constraint firstItem="u6e-xK-0nX" firstAttribute="bottom" secondItem="k80-Ix-WFw" secondAttribute="bottom" id="J94-og-KLP"/>
+                            <constraint firstItem="j89-1S-wn1" firstAttribute="top" secondItem="Iod-xt-FPD" secondAttribute="bottom" constant="8" symbolic="YES" id="1Nj-kq-Sz5"/>
+                            <constraint firstItem="j89-1S-wn1" firstAttribute="trailing" secondItem="k80-Ix-WFw" secondAttribute="trailing" id="7QD-qa-Rgh"/>
                             <constraint firstItem="WV9-HN-HHE" firstAttribute="leading" secondItem="k80-Ix-WFw" secondAttribute="leading" constant="8" id="Oev-TK-IXy"/>
-                            <constraint firstItem="u6e-xK-0nX" firstAttribute="leading" secondItem="k80-Ix-WFw" secondAttribute="leading" id="PoG-Ja-AZw"/>
+                            <constraint firstItem="j89-1S-wn1" firstAttribute="leading" secondItem="k80-Ix-WFw" secondAttribute="leading" id="R1U-FS-LZ5"/>
+                            <constraint firstItem="u6e-xK-0nX" firstAttribute="trailing" secondItem="k80-Ix-WFw" secondAttribute="trailing" id="SLd-wC-wLi"/>
                             <constraint firstItem="WV9-HN-HHE" firstAttribute="top" secondItem="k80-Ix-WFw" secondAttribute="top" constant="17" id="VeA-tw-NtR"/>
-                            <constraint firstItem="j89-1S-wn1" firstAttribute="trailing" secondItem="k80-Ix-WFw" secondAttribute="trailing" id="d0J-p9-Vl8"/>
-                            <constraint firstItem="j89-1S-wn1" firstAttribute="bottom" secondItem="k80-Ix-WFw" secondAttribute="bottom" id="jmS-Rc-RQo"/>
+                            <constraint firstItem="u6e-xK-0nX" firstAttribute="leading" secondItem="k80-Ix-WFw" secondAttribute="leading" id="Voz-hW-CSr"/>
+                            <constraint firstItem="j89-1S-wn1" firstAttribute="bottom" secondItem="k80-Ix-WFw" secondAttribute="bottom" id="XYs-J6-biI"/>
+                            <constraint firstItem="u6e-xK-0nX" firstAttribute="bottom" secondItem="k80-Ix-WFw" secondAttribute="bottom" id="ajc-2Z-knl"/>
+                            <constraint firstItem="Iod-xt-FPD" firstAttribute="top" secondItem="WV9-HN-HHE" secondAttribute="bottom" constant="45" id="aqg-5r-zd0"/>
+                            <constraint firstItem="u6e-xK-0nX" firstAttribute="top" secondItem="Iod-xt-FPD" secondAttribute="bottom" constant="8" symbolic="YES" id="bDx-UO-PvW"/>
+                            <constraint firstItem="Iod-xt-FPD" firstAttribute="trailing" secondItem="k80-Ix-WFw" secondAttribute="trailing" id="ecX-zp-mnS"/>
+                            <constraint firstItem="Iod-xt-FPD" firstAttribute="leading" secondItem="k80-Ix-WFw" secondAttribute="leading" id="iZx-9U-QIe"/>
                             <constraint firstItem="k80-Ix-WFw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WV9-HN-HHE" secondAttribute="trailing" symbolic="YES" id="owx-0e-oWB"/>
                         </constraints>
                     </view>
@@ -4405,7 +4405,7 @@
                                             <action selector="Add:" destination="fQr-6t-Ruh" eventType="touchUpInside" id="ICh-1l-egD"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyF-Hc-Aqr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyF-Hc-Aqr">
                                         <rect key="frame" x="43" y="0.0" width="18" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Lkh-ob-bLg"/>
@@ -4453,6 +4453,23 @@
             <point key="canvasLocation" x="-2280.1526717557249" y="-87.676056338028175"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4JO-p6-cHB">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="Xj1-wN-d4g">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="Yha-L4-b1l">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="deJ-Rn-5T7">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="mv7-Mk-Szk">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="arrow" width="512" height="512"/>
         <image name="arrow.right.circle" catalog="system" width="128" height="123"/>

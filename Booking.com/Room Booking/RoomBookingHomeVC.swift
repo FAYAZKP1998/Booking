@@ -83,6 +83,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "hoteldetails") as! HotelDetailsVC
         next.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(next, animated: true)
+        next.dict = dict
         
     }
     

@@ -66,7 +66,7 @@ class HistoryView: UIViewController,UITableViewDelegate,UITableViewDataSource {
             if let mydata = data{
                 
                 do{
-                    self.array = try JSONSerialization.jsonObject(with: mydata) as? NSArray ?? [String("default")]
+                    self.array = try JSONSerialization.jsonObject(with: mydata) as! NSArray //?? [String("default")]
                     
                     do{
                         DispatchQueue.main.async(){

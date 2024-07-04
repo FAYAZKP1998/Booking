@@ -22,16 +22,16 @@ class Bookings: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         historyview.isHidden = true
-        segment_controller.layer.cornerRadius = 0
-        segment_controller.layer.masksToBounds = false
-        segment_controller.addUnderlineForSelectedSegment()
+        //segment_controller.layer.cornerRadius = 0
+        //segment_controller.layer.masksToBounds = false
+        //segment_controller.addUnderlineForSelectedSegment()
     }
 
     
     
     @IBAction func segment_changed(_ sender: UISegmentedControl) {
         
-        sender.changeUnderlinePosition()
+        //sender.changeUnderlinePosition()
     
         
         

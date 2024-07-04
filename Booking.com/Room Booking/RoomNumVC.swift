@@ -11,7 +11,7 @@ class RoomNumVC: UIViewController {
     @IBOutlet weak var btn_minus: UIButton!
     @IBOutlet weak var btn_plus: UIButton!
     @IBOutlet weak var room_num: UILabel!
-    var count = 0
+    var count = 1
     
     
     
@@ -19,7 +19,7 @@ class RoomNumVC: UIViewController {
         super.viewDidLoad()
         btn_plus.tintColor = .black
         btn_minus.tintColor = .black
-        if count == 0{
+        if count == 1{
             UserDefaults.standard.setValue(count, forKey: "roomnum")
         }
 
@@ -37,12 +37,12 @@ class RoomNumVC: UIViewController {
             UserDefaults.standard.setValue(count, forKey: "roomnum")
     }
     @IBAction func Sub(_ sender: Any) {
-        if count > 0 {
+        if count > 1 {
             count -= 1
             room_num.text = String(count)
             UserDefaults.standard.setValue(count, forKey: "roomnum")
         }else{
-            room_num.text = "0"
+            room_num.text = "1"
         }
     }
 }

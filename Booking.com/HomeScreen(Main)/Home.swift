@@ -50,6 +50,9 @@ class Home: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        hello_user.text = "Hello, \(UserDefaults.standard.string(forKey: "username")!)!👋"
+        //print(UserDefaults.standard.string(forKey: "username")!)
+        //print(UserDefaults.standard.string(forKey: "phone")!)
     }
     
     

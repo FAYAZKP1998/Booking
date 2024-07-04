@@ -112,8 +112,9 @@ class CreateAccount: UIViewController {
             let task = URLSession.shared.dataTask(with: urlreq){(data,response,error)in
                 let mydata = data
                 do{
+                   
                     do{
-                        self.dict = try JSONSerialization.jsonObject(with: mydata!,options: []) as! NSDictionary
+                        self.dict = try JSONSerialization.jsonObject(with: mydata!) as! NSDictionary
                         
                  
                         
