@@ -24,7 +24,6 @@
 		F45F5E2F2C11A71600F4CCDA /* Booking_comTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45F5E2E2C11A71600F4CCDA /* Booking_comTests.swift */; };
 		F45F5E392C11A71600F4CCDA /* Booking_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45F5E382C11A71600F4CCDA /* Booking_comUITests.swift */; };
 		F45F5E3B2C11A71600F4CCDA /* Booking_comUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45F5E3A2C11A71600F4CCDA /* Booking_comUITestsLaunchTests.swift */; };
-		F47856E02C16B1F500EEAC29 /* segmentcontrol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47856DF2C16B1F500EEAC29 /* segmentcontrol.swift */; };
 		F4DA85BB2C1BF96400C9990C /* HotelDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DA85BA2C1BF96400C9990C /* HotelDetailsVC.swift */; };
 		F4DA85BD2C1C108200C9990C /* RoomBookingHomeTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DA85BC2C1C108200C9990C /* RoomBookingHomeTV.swift */; };
 		F4E00EB52C14248B00CACCC1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E00EB42C14248B00CACCC1 /* Home.swift */; };
@@ -89,7 +88,6 @@
 		F45F5E342C11A71600F4CCDA /* Booking.comUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Booking.comUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45F5E382C11A71600F4CCDA /* Booking_comUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking_comUITests.swift; sourceTree = "<group>"; };
 		F45F5E3A2C11A71600F4CCDA /* Booking_comUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking_comUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F47856DF2C16B1F500EEAC29 /* segmentcontrol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segmentcontrol.swift; sourceTree = "<group>"; };
 		F4DA85BA2C1BF96400C9990C /* HotelDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailsVC.swift; sourceTree = "<group>"; };
 		F4DA85BC2C1C108200C9990C /* RoomBookingHomeTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBookingHomeTV.swift; sourceTree = "<group>"; };
 		F4E00EB42C14248B00CACCC1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 				F45F5E1D2C11A71400F4CCDA /* Main.storyboard */,
 				F4DA85BA2C1BF96400C9990C /* HotelDetailsVC.swift */,
 				F4267E402C2150E500AD2F2B /* DetailsPageCV.swift */,
-				F47856DF2C16B1F500EEAC29 /* segmentcontrol.swift */,
 				F4E00EC02C1489F000CACCC1 /* HomeTab.swift */,
 				F4E00EDA2C14AFB300CACCC1 /* HomeScreen(Main) */,
 				F4E00ED82C14AF4900CACCC1 /* HomeScreen(Start) */,
@@ -532,7 +529,6 @@
 				F42327072C2DB15A0026A3F3 /* RoomNumVC.swift in Sources */,
 				F4218B652C157259003C063B /* RoomBookingHomeVC.swift in Sources */,
 				F4267E412C2150E500AD2F2B /* DetailsPageCV.swift in Sources */,
-				F47856E02C16B1F500EEAC29 /* segmentcontrol.swift in Sources */,
 				F4E00EBF2C143FD100CACCC1 /* ProfileDetails.swift in Sources */,
 				F4E6DF8C2C120269000AE2CA /* CreateAccount.swift in Sources */,
 				F4DA85BD2C1C108200C9990C /* RoomBookingHomeTV.swift in Sources */,

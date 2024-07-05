@@ -37,8 +37,8 @@ class RoomSelectVC: UIViewController {
         booking_view.layer.borderWidth = 1
         booking_view.layer.borderColor = UIColor.black.cgColor
         
-        checkin_date.text = ""
-        checkout_date.text = ""
+        checkin_date.text = "Select date"
+        checkout_date.text = "Select date"
         room_no.text = "1 Room"
         adddate_btn.tintColor = .black
         room_view.isHidden = true
@@ -65,11 +65,9 @@ class RoomSelectVC: UIViewController {
             UserDefaults.standard.setValue(date.string(from: date_picker.date), forKey: "checkin")
         }else if select_sgmnt.selectedSegmentIndex == 1{
             UserDefaults.standard.setValue(date.string(from: date_picker.date), forKey: "checkout")
-
         }
     }
     @IBAction func SegmentView_select(_ sender: UISegmentedControl) {
-        //sender.changeUnderlinePosition()
         switch sender.selectedSegmentIndex{
         case 0:adddate_btn.isHidden = false
             date_view.isHidden = false
@@ -100,7 +98,6 @@ class RoomSelectVC: UIViewController {
                 
             case 0:checkin_date.text = UserDefaults.standard.string(forKey: "checkin")
                 select_sgmnt.selectedSegmentIndex = 1
-                //select_sgmnt.changeUnderlinePosition()
                     adddate_btn.isHidden = false
                     date_view.isHidden = false
                     room_view.isHidden = true
@@ -108,7 +105,6 @@ class RoomSelectVC: UIViewController {
                     adddate_btn.isHidden = false
             case 1:checkout_date.text = UserDefaults.standard.string(forKey: "checkout")
                 select_sgmnt.selectedSegmentIndex = 2
-                //select_sgmnt.changeUnderlinePosition()
                     adddate_btn.isHidden = true
                     date_view.isHidden = true
                     room_view.isHidden = false

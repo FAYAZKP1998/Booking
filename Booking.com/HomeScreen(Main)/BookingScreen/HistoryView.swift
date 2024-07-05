@@ -55,6 +55,7 @@ class HistoryView: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.getvalue()
         super.viewDidLoad()
         history_table.separatorStyle = .none
+        history_table.allowsSelection = false
         
     }
     
@@ -66,7 +67,7 @@ class HistoryView: UIViewController,UITableViewDelegate,UITableViewDataSource {
             if let mydata = data{
                 
                 do{
-                    self.array = try JSONSerialization.jsonObject(with: mydata) as! NSArray //?? [String("default")]
+                    self.array = try JSONSerialization.jsonObject(with: mydata) as! NSArray
                     
                     do{
                         DispatchQueue.main.async(){

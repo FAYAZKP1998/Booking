@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     var array = NSArray()
     var dict = NSDictionary()
-  
+    var loginscuccess = false
     
     
     
@@ -67,29 +67,33 @@ class ViewController: UIViewController {
     
     
     @IBAction func Login(_ sender: Any) {
-        
-        
-        
         let url = URL(string: "https://hotel.b4production.com/getandpostlog")
         var urlreq = URLRequest(url: url!)
         urlreq.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content_type")
         urlreq.httpMethod = "post"
         let poststring = "phone=\(mobile_no.text!)&password=\(password.text!)"
-        
         urlreq.httpBody = poststring.data(using: .utf8)
         
         
         
         let task = URLSession.shared.dataTask(with: urlreq){(data,response,error)in
         let mydata = data
+//            let httpresponse = response as! HTTPURLResponse
+//            if httpresponse.statusCode == 201{
+//                self.loginscuccess = true
+//                print(httpresponse.statusCode)
+//            }else{
+//                self.loginscuccess = false
+//                print(httpresponse.statusCode)
+//            }
+            
+            
             do{
                 do{
                     self.dict = try JSONSerialization.jsonObject(with: mydata!,options: []) as! NSDictionary
-
                     DispatchQueue.main.async {
-                       
-                        
-                        if self.dict["phone"] as? String == self.mobile_no.text && self.dict["password"] as? String == self.password.text{
+
+                        if self.dict["phone"] as! String == self.mobile_no.text! && self.dict["password"] as! String == self.password.text!{
                             let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "hometab") as! HomeTab
                             next.modalPresentationStyle = .overFullScreen
                             self.present(next, animated: true)
@@ -98,6 +102,8 @@ class ViewController: UIViewController {
                             UserDefaults.standard.setValue(self.dict["password"], forKey: "password")
                             self.mobile_no.text = ""
                             self.password.text = ""
+                        }else{
+                            print("failed")
                         }
                     }
                 }
@@ -108,7 +114,6 @@ class ViewController: UIViewController {
         task.resume()
  
     }
-    
 
 
     @IBAction func create(_ sender: Any) {

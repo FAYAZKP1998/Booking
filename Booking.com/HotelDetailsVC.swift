@@ -59,6 +59,7 @@ class HotelDetailsVC: UIViewController,UICollectionViewDelegate,UICollectionView
     @IBOutlet weak var hotel_price: UILabel!
     @IBOutlet weak var hotel_location: UILabel!
     @IBOutlet weak var collect_view: UICollectionView!
+    @IBOutlet weak var hotel_desc: UILabel!
     
     var array = NSArray()
     var dict = NSDictionary()
@@ -67,6 +68,7 @@ class HotelDetailsVC: UIViewController,UICollectionViewDelegate,UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         getvalue()
+        
         UserDefaults.standard.setValue(self.dict, forKey: "selected_hotel")
         location_view.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
         location_view.layer.borderWidth = 1
@@ -88,7 +90,7 @@ class HotelDetailsVC: UIViewController,UICollectionViewDelegate,UICollectionView
         hotel_name.text = String(describing: dict["hname"]!)
         hotel_location.text = String(describing: dict["hloc"]!)
         hotel_price.text = String(describing: dict["hprice"]!)
-        
+        hotel_desc.text = String(describing: dict["hdesc"]!)
         let image_url = String(describing: dict["himage"]!)
         if let url = URL(string: image_url) {
                     loadImage(from: url)

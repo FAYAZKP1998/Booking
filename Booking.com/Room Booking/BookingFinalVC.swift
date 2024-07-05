@@ -26,8 +26,8 @@ class BookingFinalVC: UIViewController {
     var array = NSArray()
     var dict1 = NSDictionary()
     var dict2 = NSDictionary()
-    
-    
+    var bookingsuccess = false
+    var urlimg = ""
     
 
     
@@ -46,35 +46,37 @@ class BookingFinalVC: UIViewController {
         hotel_location.text = String(describing: dict1["hloc"]!)
         hotel_price.text = String(describing: dict1["hprice"]!)
         
-        let image_url = String(describing: self.dict1["himage"]!)
-        let url = URL(string: image_url)
-        let img = try? Data(contentsOf: url!)
-        self.hotel_img.image = UIImage(data: img!)
-        
-        
-        
-
-
-        
-        
-        
-        
-
-        
-        print(hotel_name.text!,hotel_location.text!,hotel_price.text!,checkin_date.text!,checkout_date.text!,room_num.text!)
-        
-        
-        
-        
         hotel_img.layer.cornerRadius = 8
         details_view.layer.cornerRadius = 8
         details_view.layer.borderWidth = 1
         details_view.layer.borderColor = UIColor.systemGray5.cgColor
         star_img.tintColor = .black
         pay_btn.tintColor = .black
-        //print("hname=\(hotel_name.text!)&hostel_loc=\(hotel_location.text!)&hostel_price=\(hotel_price.text!)&checkin=\(checkin_date.text!)&checkout=\(checkout_date.text!)")
         
+        let image_url = String(describing: dict1["himage"]!)
+        urlimg = image_url
+        if let url = URL(string: image_url) {
+            loadImage(from: url)
+        }
     }
+    func loadImage(from url: URL) {
+         URLSession.shared.dataTask(with: url){(data,response,error) in
+             if let error = error {
+                 print("Error loading image: \(error)")
+                 return
+             }
+
+             guard let data = data, let image = UIImage(data: data) else {
+                 print("Failed to load image data")
+                 return
+             }
+
+             DispatchQueue.main.async {
+                 self.hotel_img.image = image
+                 
+             }
+         }.resume()
+     }
     
 
     @IBAction func PayNow(_ sender: Any) {
@@ -84,28 +86,30 @@ class BookingFinalVC: UIViewController {
         urlreq.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content_type")
         urlreq.httpMethod = "post"
         
-        let poststring = "hname=\(hotel_name.text!)&hostel_loc=\(hotel_location.text!)&hostel_price=\(hotel_price.text!)&checkin=\(checkin_date.text!)&checkout=\(checkout_date.text!)"
+        let poststring = "hname=\(hotel_name.text!)&hostel_loc=\(hotel_location.text!)&hostel_price=\(hotel_price.text!)&checkin=\(checkin_date.text!)&checkout=\(checkout_date.text!)&hostel_image=\(self.urlimg)"
         
         
         urlreq.httpBody = poststring.data(using: .utf8)
         
-        
-        
-        
-        
         let task = URLSession.shared.dataTask(with: urlreq){(data,response,error)in
             let mydata = data
             do{
-                print(mydata!)
                 do{
-                    self.dict2 = try JSONSerialization.jsonObject(with: mydata!) as! NSDictionary
-                    print(self.dict2)
+                    self.dict2 = try JSONSerialization.jsonObject(with: mydata!,options: []) as! NSDictionary
+                    
                     DispatchQueue.main.async(){
-                        
+    
+                        let alert = UIAlertController(title: "Success", message: "Successfully booked your room", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default,handler: {_ in 
+                            let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "hometab") as! HomeTab
+                            next.modalPresentationStyle = .overFullScreen
+                            self.present(next, animated: true)
+                        }))
+                        self.present(alert, animated: true)
                     }
                 }
             }catch{
-                print(error)
+                print(error.localizedDescription)
             }
         }
         task.resume()

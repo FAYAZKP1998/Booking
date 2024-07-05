@@ -24,7 +24,7 @@ class BookedView: UIViewController,UITableViewDelegate,UITableViewDataSource {
             let image_url = String(describing: self.dict["hostel_image"]!)
             if let url = URL(string: image_url) {
                 cell.loadImage(from: url)
-            }
+           }
             
             cell.hotelname.text = String(describing: self.dict["hname"]!)
             cell.hotelprice.text = String(describing: self.dict["hostel_price"]!)
@@ -59,6 +59,7 @@ class BookedView: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
        getvalue()
         booked_table.separatorStyle = .none
+        booked_table.allowsSelection = false
         
        
     

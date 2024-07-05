@@ -61,7 +61,6 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     let cell = tableView.dequeueReusableCell(withIdentifier: "roombookTV", for: indexPath) as! RoomBookingHomeTV
     
     self.dict = self.array[indexPath.row] as! NSDictionary
-    
     let image_url = String(describing:self.dict["himage"]!)
     if let url = URL(string: image_url) {
                 cell.loadImage(from: url)
@@ -83,7 +82,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "hoteldetails") as! HotelDetailsVC
         next.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(next, animated: true)
-        next.dict = dict
+        next.dict = array[indexPath.row] as! NSDictionary
+       
         
     }
     
